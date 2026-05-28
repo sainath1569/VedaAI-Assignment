@@ -148,7 +148,7 @@ export default function CreateAssignmentForm() {
       const target = event.target as Node;
 
       if (!addMenuRef.current?.contains(target)) setShowAddMenu(false);
-      
+
       // Fix: Only close the question type dropdown if the click target is completely outside the question type row/dropdown container.
       if (target instanceof Element && !target.closest(".question-type-dropdown-container")) {
         setOpenQuestionTypeId(null);
@@ -286,12 +286,18 @@ export default function CreateAssignmentForm() {
     formData.append("username", "saina");
 
     try {
+      console.log("LIVE API CALL STARTED");
+      console.log("Backend URL:", "https://veda-backend-hubf.onrender.com/assignments");
+      console.log("FormData:", [...formData.entries()]);
       const response = await fetch("https://veda-backend-hubf.onrender.com/assignments", {
-        method: "POST",
+        method: "GET",
         body: formData, // Browser automatically generates boundary for FormData
       });
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
 
       const data = await response.json().catch(() => null);
+      console.log("Raw response data:", data);
 
       if (!response.ok) {
         throw new Error(data?.error || "Failed to generate assignment. Please try again.");
@@ -333,7 +339,7 @@ export default function CreateAssignmentForm() {
   }
 
   return (
-    <div className="font-bricolage mx-auto flex w-full max-w-[373px] flex-col items-center gap-6 px-3 pb-32 lg:max-w-[1103px] lg:gap-8 lg:px-0">
+    <div className="font-bricolage mx-auto flex w-full max-w-[373px] flex-col items-center gap-6 px-3 pb-32 lg:max-w-[1103px] lg:gap-8 lg:px-0 pb-24 lg:pb-0">
       {isGenerating && <GenerationOverlay generationStep={generationStep} />}
 
       <MobileHeader onBack={() => router.push("/")} />
@@ -607,20 +613,20 @@ function DesktopHeader() {
     <div className="font-bricolage hidden w-[1103px] flex-col gap-8 lg:flex">
       <div className="flex h-[66px] w-full items-center gap-4 p-2">
         <div className="flex h-[50px] items-center gap-[14px]">
-  <div className="relative flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[#CFEED8]">
-    <div className="h-[12px] w-[12px] rounded-full bg-[#4BC26D]" />
-  </div>
+          <div className="relative flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[#CFEED8]">
+            <div className="h-[12px] w-[12px] rounded-full bg-[#4BC26D]" />
+          </div>
 
-  <div className="flex flex-col justify-center">
-    <h1 className="text-[20px] font-bold leading-[120%] tracking-[-0.05em] text-[#303030]">
-      Create Assignment
-    </h1>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-[20px] font-bold leading-[120%] tracking-[-0.05em] text-[#303030]">
+              Create Assignment
+            </h1>
 
-    <p className="mt-[2px] text-[14px] font-normal leading-[135%] tracking-[-0.03em] text-[rgba(94,94,94,0.72)]">
-      Set up a new assignment for your students
-    </p>
-  </div>
-</div>
+            <p className="mt-[2px] text-[14px] font-normal leading-[135%] tracking-[-0.03em] text-[rgba(94,94,94,0.72)]">
+              Set up a new assignment for your students
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="mx-auto flex w-[815px] gap-3">
@@ -905,8 +911,8 @@ function Counter({
 
 function GenerationOverlay({ generationStep }: { generationStep: number }) {
   return (
-    <div className="font-bricolage fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-      <div className="w-full max-w-[620px] rounded-[30px] border border-white/10 bg-[#252525] p-5 text-white shadow-2xl sm:rounded-[34px] sm:p-8">
+    <div className="font-bricolage fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-none lg:backdrop-blur-sm">
+      <div className="w-full max-w-[620px] rounded-[30px] border border-white/10 bg-[#252525] p-5 pb-8 text-white shadow-2xl sm:rounded-[34px] sm:p-8">
         <div className="flex items-center gap-4">
           <Loader2 className="h-8 w-8 shrink-0 animate-spin text-[#ff5a1f]" />
           <div>

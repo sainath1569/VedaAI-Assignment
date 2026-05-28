@@ -41,8 +41,7 @@ function parseDate(dateStr?: string): Date {
 
 export default function AssignmentsList() {
   const router = useRouter();
-  const { assignments, deleteAssignment } = useAssignmentsStore();
-
+const { assignments, deleteAssignment, loadAssignments } = useAssignmentsStore();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMounted, setIsMounted] = useState(false);
@@ -77,6 +76,10 @@ export default function AssignmentsList() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    loadAssignments();
+  }, [loadAssignments]);
 
   if (!isMounted) {
     return (
