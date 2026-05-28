@@ -290,7 +290,7 @@ export default function CreateAssignmentForm() {
       console.log("Backend URL:", "https://veda-backend-hubf.onrender.com/assignments");
       console.log("FormData:", [...formData.entries()]);
       const response = await fetch("https://veda-backend-hubf.onrender.com/assignments", {
-        method: "GET",
+        method: "POST",
         body: formData, // Browser automatically generates boundary for FormData
       });
       console.log("Response status:", response.status);
