@@ -286,7 +286,7 @@ export default function CreateAssignmentForm() {
     formData.append("username", "saina");
 
     try {
-      const response = await fetch("http://localhost:3001/assignments", {
+      const response = await fetch("https://veda-backend-hubf.onrender.com/assignments", {
         method: "POST",
         body: formData, // Browser automatically generates boundary for FormData
       });
