@@ -1,0 +1,63 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production build
+build/
+
+# Static files generated
+static/
+
+# Logs
+npm-debug.log*
+ yarn-debug.log*
+ yarn-error.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Cache files
+*.cache
+.cache
+
+# Coverage directories
+coverage/
+.nyc_output/
+
+# Misc
+*.tgz
+*.zip
+*.gz
+
+# Optional npm files
+package-lock.json
+yarn.lock
+
+# Misc temporary files
+tmp/
+*.tmp
+
+# Ignore generated assets (if any)
+public/assets/
+
+# Ignore local testing uploads
+uploads/
