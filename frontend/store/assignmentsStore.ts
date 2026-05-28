@@ -139,7 +139,7 @@ export const useAssignmentsStore = create<AssignmentsState>((set, get) => {
     },
     deleteAssignment: async (id) => {
       try {
-        await fetch(`http://localhost:3001/assignments/${id}`, {
+        await fetch(`https://veda-backend-hubf.onrender.com/assignments/${id}`, {
           method: "DELETE",
         });
       } catch (err) {
