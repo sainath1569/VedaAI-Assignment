@@ -1,7 +1,7 @@
 # VedaAI Assignment Creator
-A **full‑stack web application** that lets teachers generate AI‑powered assignment papers from uploaded PDFs or plain text. The UI is built with **React (Next.js)**, vanilla CSS, and a sleek modern design (glassmorphism, subtle animations). The backend runs on **Node.js + Express** and uses **BullMQ** for background job processing.
----
-## 📦 Project Structure
+A full‑stack web application that lets teachers generate AI‑powered assignment papers from uploaded PDFs or plain text. The UI is built with **React (Next.js)**, vanilla CSS, and a sleek modern design (glassmorphism, subtle animations). The backend runs on **Node.js + Express** and uses **BullMQ** for background job processing.
+
+📦 Project Structure
 ```
 VedaAI-Assignment-Creator/
 ├─ backend/                 # Express server, assignment routes, BullMQ workers
