@@ -87,7 +87,4 @@ The `.gitignore` already excludes build artefacts, `node_modules`, logs, env fil
 3. Submit a pull request with a clear description of changes.
 4. Ensure `npm run lint` passes (pre‑commit hook can be set up).
 ---
-## 📜 License
-MIT – feel free to use, modify, and share.
----
 *Happy coding! 🚀*
